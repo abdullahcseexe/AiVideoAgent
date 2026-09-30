@@ -383,29 +383,33 @@ with tab_tr:
         label_visibility="collapsed",
     )
     st.download_button("Download transcript", result["transcript"], file_name="transcript.txt")
-
+    
 with tab_chat:
-    if not st.session_state.messages:
-        st.markdown(
-            '<p class="empty">Ask about anything discussed, for example “What was decided about the timeline?”</p>',
-            unsafe_allow_html=True,
-        )
-    for m in st.session_state.messages:
-        with st.chat_message(m["role"]):
-            st.markdown(m["content"])
+    chat_box = st.container()          # messages go here, above the input
+    question = st.chat_input("Ask about this video")
 
-    if question := st.chat_input("Ask about this video"):
-        st.session_state.messages.append({"role": "user", "content": question})
-        with st.chat_message("user"):
-            st.markdown(question)
-        with st.chat_message("assistant"):
-            with st.spinner("Searching the transcript"):
-                try:
-                    answer = ask_question(result["rag_chain"], question)
-                except Exception as e:
-                    answer = f"I couldn't answer that. {e}"
-            st.markdown(answer)
-        st.session_state.messages.append({"role": "assistant", "content": answer})
+    with chat_box:
+        if not st.session_state.messages and not question:
+            st.markdown(
+                '<p class="empty">Ask about anything discussed, for example “What was decided about the timeline?”</p>',
+                unsafe_allow_html=True,
+            )
+        for m in st.session_state.messages:
+            with st.chat_message(m["role"]):
+                st.markdown(m["content"])
+
+        if question:
+            st.session_state.messages.append({"role": "user", "content": question})
+            with st.chat_message("user"):
+                st.markdown(question)
+            with st.chat_message("assistant"):
+                with st.spinner("Searching the transcript"):
+                    try:
+                        answer = ask_question(result["rag_chain"], question)
+                    except Exception as e:
+                        answer = f"I couldn't answer that. {e}"
+                st.markdown(answer)
+            st.session_state.messages.append({"role": "assistant", "content": answer})
 
 
 
