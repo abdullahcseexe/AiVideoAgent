@@ -4,6 +4,4 @@ Upload a video or audio file (or paste a link) and get a summary, action items, 
 
 Live app: add your Streamlit link here
 
-Stack
-
-Streamlit, LangChain, Mistral AI, Groq Whisper, ChromaDB, yt-dlp, pydub
+Stack: Streamlit, LangChain, Mistral AI, Groq Whisper, ChromaDB, yt-dlp, pydub

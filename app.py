@@ -265,7 +265,7 @@ result = st.session_state.result
 
 # ================================================================ INPUT VIEW
 if not result:
-    st.markdown('<h1 class="brand">Video Assistant</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="brand">ClipSum: Video Assistant</h1>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="intro">
@@ -336,7 +336,7 @@ if not result:
 # ================================================================ RESULTS VIEW
 top_left, top_mid, top_right = st.columns([3, 1.4, 1.2])
 with top_left:
-    st.markdown('<h1 class="brand">Video Assistant</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="brand">ClipSum: Video Assistant</h1>', unsafe_allow_html=True)
 with top_mid:
     st.download_button(
         "Download report",
