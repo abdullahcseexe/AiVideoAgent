@@ -1,4 +1,4 @@
-# ClipSum: AI Video Assistant
+# ClipSum: AI Video Assistant ( https://clipsum-aivideoagent.streamlit.app )
 
 Upload a video or audio file, or paste a link, and get a summary, action items, key decisions and open questions. Then ask follow-up questions about anything that was said in the video.
 
