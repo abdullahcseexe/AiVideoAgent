@@ -17,3 +17,4 @@ yt-dlp>=2024.4.9
 pydub>=0.25.1
 
 python-docx>=1.1.0
+audioop-lts; python_version >= "3.13"
