@@ -11,7 +11,7 @@ import httpx
 
 def get_llm():
     llm = ChatMistralAI(
-        model="open-mistral-nemo",      # changed from "mistral-small-latest"
+        model="open-mistral-nemo",     
         mistral_api_key=os.getenv("MISTRAL_API_KEY"),
         temperature=0.2,
         rate_limiter=rate_limiter,
